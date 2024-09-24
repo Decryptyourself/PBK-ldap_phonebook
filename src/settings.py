@@ -1,5 +1,5 @@
 # Настройки для подключения к PostgreSQL
-DB_HOST = 'db'
+DB_HOST = 'localhost'
 DB_NAME = 'ldappbk_db'
 DB_USER = 'ldappbk_db_user'
 DB_PASSWORD = 'ldappbk_db_pass'
