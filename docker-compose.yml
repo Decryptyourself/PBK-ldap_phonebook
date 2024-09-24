@@ -1,0 +1,37 @@
+version: '3.7'
+
+services:
+  app:
+    build: .
+    volumes:
+      - ./src:/src
+    expose:
+      - "5000"
+    depends_on:
+      - db
+    restart: always
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - app
+    restart: always
+
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: postgres # БД по умолчанию
+      POSTGRES_USER: postgres # Админ PostgreSQL по умолчанию
+      POSTGRES_PASSWORD: postgres # пароль админа PostgreSQL по умолчанию
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    restart: always
+
+volumes:
+  postgres_data:

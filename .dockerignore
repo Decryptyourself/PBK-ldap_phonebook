@@ -1,0 +1,20 @@
+# Игнор резервных копий
+/bak/
+# Игнор служебной информации
+/info/
+src/templates/img
+*.cer
+
+# Игнор виртуального окружения
+/ldap-env/
+/venv/
+env/
+*.env
+*.ini
+
+# Игнор файлов кэша Python
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+src/__pycache__/
