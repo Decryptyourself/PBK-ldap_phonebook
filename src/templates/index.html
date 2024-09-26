@@ -15,21 +15,21 @@
                 <h1>Внутренние телефоны</h1>
             </div>
 
-            <!-- Департаменты -->
+            <!-- Департаменты global-departments -->
             <!-- div2 -->
-            <div class="global-departments">
-                <div class="global-departments-static-tables" id="static-tables">
+            <div class="container">
+                <div class="department-static-tables" id="static-tables">
                     <!-- Прохождение по всем отделам кроме "Отдел не указан" -->
-                    {% for department, employees in departments.items() if department != 'Отдел не указан' %}
+                    {% for global_department in global_departments.items() if global_department != 'Департамент не указан' %}
                     <div class="department-table">
-                        <h2 class="global-department-header" id="department-header-{{ loop.index }}">{{ department }}</h2> <!-- Уникальный ID -->
+                        <h2 class="department-header" id="department-header-{{ loop.index }}">{{ global_department }}</h2> <!-- Уникальный ID -->
                     </div>
                     {% endfor %}
 
                     <!-- Отдельная таблица для "Отдел не указан", отображаемая в конце -->
-                    {% if 'Отдел не указан' in departments %}
+                    {% if 'Департамент не указан' in global_departments %}
                     <div class="department-table">
-                        <h2 class="global-department-header" id="department-header-not-specified">Отдел не указан</h2>
+                        <h2 class="department-header" id="department-header-not-specified">Департамент не указан</h2>
                     </div>
                     {% endif %}
                 </div>

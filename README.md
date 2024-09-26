@@ -51,35 +51,34 @@ cd PBK-ldap_phonebook
 ```
 ### 1.1. Установка Docker
 
-# обновление системы до актуального состояния
+#### обновление системы до актуального состояния
 ```bash
 sudo apt update && sudo apt upgrade
 ```
-# установка пакетов, необходимых для работы apt по https
+#### установка пакетов, для работы apt по https
 ```bash
 sudo apt install apt-transport-https ca-certificates curl software-properties-common
 ```
-# добавление ключа репозитория docker
+#### добавление ключа репозитория docker
 ```bash
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 ```
-# добавление репозитория docker в систему
+#### добавление репозитория docker в систему
 ```bash
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
 ```
 ```bash
 sudo apt update && apt-cache policy docker-ce
 ```
-# установка Docker
+#### установка Docker
 ```bash
 sudo apt install -y docker-ce
 ```
-# добавление текущего пользователя в группу docker
-# иначе при запуске docker будет ошибка подключения к сокету
+#### добавление текущего пользователя в группу docker, иначе при запуске docker будет ошибка подключения к сокету
 ```bash
 sudo usermod -aG docker $(whoami)
 ```
-# проверка запуска docker
+#### проверка запуска docker
 ```bash
 sudo systemctl status docker
 ```
@@ -105,11 +104,11 @@ sudo apt install python3-pip
 scp -r C:\AD.cer admin@192.168.1.100:/home/admin/
 ```
 
-# для того чтобы система считала его доверенным, нужно скопировать его в папку:
+#### для того чтобы система считала его доверенным, нужно скопировать его в папку:
 ```bash
 sudo cp /home/admin/AD.crt /usr/local/share/ca-certificates/AD.crt
 ```
-# обновление сертификатов в системе
+#### обновление сертификатов в системе
 ```bash
 sudo update-ca-certificates
 ```
@@ -132,7 +131,7 @@ AD_TIME_SYNC = 30 # частота обновления данных из AD (в
 
 ### 3. Запуск через Docker Compose
 
-Приложение использует Docker Compose для работы с PostgreSQL, Nginx и Flask. Для запуска выполните следующие команды:
+#### Приложение использует Docker Compose для работы с PostgreSQL, Nginx и Flask. Запуск:
 ```bash
 sudo docker-compose build
 ```
@@ -148,8 +147,7 @@ sudo docker ps
 2. nginx - Nginx-сервер для проксирования запросов на Flask-приложение
 3. db - PostgreSQL база данных для хранения данных о сотрудниках
 
-
-### После запуска приложение будет доступно на порту 80.
+#### После запуска приложение будет доступно на порту 80.
 
 
 ## ⚙️ Дополнительные команды ⚙️
@@ -157,7 +155,9 @@ sudo docker ps
 #### Остановка всех контейнеров:
 ```bash
 sudo docker-compose down
-# пересборка и запуск
+```
+#### пересборка и запуск
+```bash
 sudo docker-compose up --build -d
 ```
 
@@ -174,7 +174,11 @@ sudo docker-compose restart
 #### Удалить все контейнеры (!Если нет других! Удалить вообще все, что есть):
 ```bash
 sudo docker stop $(docker ps -aq)
+```
+```bash
 sudo docker rm $(docker ps -aq)
+```
+```bash
 sudo docker system prune -a
 ```
 

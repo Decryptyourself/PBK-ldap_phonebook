@@ -1,7 +1,15 @@
 // Главная функция для отображения шапок отделов при пустом поисковом запросе
-function showStaticHeaders(departments) {
+function showStaticHeaders(departments, global_departments) {
     var staticTablesDiv = document.getElementById('static-tables');
     staticTablesDiv.innerHTML = '';  // Очистка содержимого
+
+    // Прохождение по департаментам и создание шапки для каждого департамента
+    for (var global_department in global_departments) {
+        var departmentHeader = document.createElement('h2');
+        departmentHeader.textContent = global_department;
+        departmentHeader.classList.add('department-header');
+        staticTablesDiv.appendChild(departmentHeader);
+    }
 
     // Прохождение по отделам и создание шапки для каждого отдела
     for (var department in departments) {
