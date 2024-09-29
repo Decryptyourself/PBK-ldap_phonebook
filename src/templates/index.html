@@ -17,24 +17,24 @@
 
             <!-- Департаменты global-departments -->
             <!-- div2 -->
-            <div class="container">
-                <div class="department-static-tables" id="static-tables">
-                    <!-- Прохождение по всем отделам кроме "Отдел не указан" -->
-                    {% for global_department in global_departments.items() if global_department != 'Департамент не указан' %}
-                    <div class="department-table">
-                        <h2 class="department-header" id="department-header-{{ loop.index }}">{{ global_department }}</h2> <!-- Уникальный ID -->
+            <div class="global-departments">
+                <div class="department-static-tables" id="global-static-tables">
+                    <!-- Прохождение по всем департаментам кроме "Департамент не указан" -->
+                    {% for global_department in global_departments if global_department != 'Департамент не указан' %}
+                    <div class="global-department-table">
+                        <h2 class="global-department-header" id="global-department-header-{{ loop.index }}">{{ global_department }}</h2> <!-- Уникальный ID -->
                     </div>
                     {% endfor %}
 
-                    <!-- Отдельная таблица для "Отдел не указан", отображаемая в конце -->
+                    <!-- Отдельная таблица для "Департамент не указан", отображаемая в конце -->
                     {% if 'Департамент не указан' in global_departments %}
-                    <div class="department-table">
-                        <h2 class="department-header" id="department-header-not-specified">Департамент не указан</h2>
+                    <div class="global-department-table">
+                        <h2 class="global-department-header" id="global-department-header-not-specified">Департамент не указан</h2>
                     </div>
                     {% endif %}
                 </div>
-            </div>
-            
+            </div>   
+
             <!-- Строка поиска -->
             <!-- div3 -->
             <div class="search-field">
@@ -51,7 +51,7 @@
                     <!-- Прохождение по всем отделам кроме "Отдел не указан" -->
                     {% for department, employees in departments.items() if department != 'Отдел не указан' %}
                     <div class="department-table">
-                        <h2 class="department-header" id="department-header-{{ loop.index }}">{{ department }}</h2> <!-- Уникальный ID -->
+                        <h3 class="department-header" id="department-header-{{ loop.index }}">{{ department }}</h3> <!-- Уникальный ID -->
                         <table id="department-table-{{ loop.index }}" class="hidden">
                             <thead>
                                 <tr>
@@ -80,7 +80,7 @@
                     <!-- Отдельная таблица для "Отдел не указан", отображаемая в конце -->
                     {% if 'Отдел не указан' in departments %}
                     <div class="department-table">
-                        <h2 class="department-header" id="department-header-not-specified">Отдел не указан</h2>
+                        <h3 class="department-header" id="department-header-not-specified">Отдел не указан</h3>
                         <table id="department-table-not-specified" class="hidden">
                             <thead>
                                 <tr>
@@ -110,12 +110,12 @@
 
             <!-- div5 -->
             <div class="basement-left-short">
-                <!-- Подвал -->
+                <!-- Подвал левый -->
             </div>
 
             <!-- div6 -->
             <div class="basement-right-long">
-                <!-- Подвал -->
+                <!-- Подвал правый -->
             </div>
         </div>
 

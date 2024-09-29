@@ -22,262 +22,288 @@ body {
     grid-column-gap: 4px;
     grid-row-gap: 2px;
     }
-    
-    .header {
-        grid-area: 1 / 1 / 2 / 2;
-    }
-    .global-departments {
-        grid-area: 2 / 1 / 3 / 2;
-    }
 
-    /* Строка поиска */
-    .search-field { grid-area: 1 / 2 / 2 / 3;
-        text-align: center;
-        font-size: 14px;
-        font-weight: 500;
-        margin: auto; /* Центрирование по горизонтали */
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start; /* Центрирование содержимого по вертикали */
-        padding: 0px 0; /* Отступы сверху и снизу */
-        box-sizing: border-box;    
-        user-select: none;
-        height: 49px; /* Заполнение по высоте */    
-        width: 950px;
-    }
+/* ---------------------------- div1 ---------------------------- */
+.header {
+    grid-area: 1 / 1 / 2 / 2;
+}
+h1 {
+    margin-bottom: 3px;
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 15px;
+    text-align: center;
+    color: #000000cb; /* Цвет заголовка "Внутренние телефоны" */
+    user-select: none;
+}
 
-    /* Общий контейнер */
-    .container {
-        grid-area: 2 / 2 / 3 / 3;
-        height: auto; /* Заполнение по высоте */
-        text-align: left;
-        display: flex;
-        flex-direction: column;
-        box-sizing: border-box;
-        background-color: #e1f0fc;
-    }
-    .basement-left-short { grid-area: 3 / 1 / 4 / 2; }
-    .basement-right-long { grid-area: 3 / 2 / 4 / 3; }
+/* ---------------------------- div2 ---------------------------- */
+.global-departments {
+    grid-area: 2 / 1 / 3 / 2;
+    height: auto; /* Заполнение по высоте */
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    background-color: #e1f0fc;
+}
+.global-departments-static-tables {
+    background-color: #e1f0fc;
+}
+/* ПОИСК: Стили для шапок Департаментов */
+h2 {
+    background-color: #92cbee; /* Цвет шапки отдела #bfdaeb */
+    font-weight: 500; 
+    text-align: left; /* Выравнивание текста */
+    text-indent: 20px; /* Отступ слева */
+    font-size: 14px;
+    padding: 4px; /* Высота строки */
+    border: 1px solid #5092e9; /* Цвет границы шапки отдела #5092e9 */
+    border-radius: 4px;
+    cursor: pointer;
+    width: 1268px; /* 355px 1166px */
+    user-select: none;
+}
+/* Постоянно: Стили для шапок Департаментов */
+.global-department-header {
+    /* width: 1266px; /* 355px 1166px */
+    width: 455px;
+    background-color: #92cbee; /* Цвет шапки отдела #bfdaeb */
+    margin-top: 1px;
+    margin-bottom: 1px;
+    font-weight: 600; 
+    text-align: left; /* Выравнивание текста */
+    text-indent: 20px; /* Отступ слева */
+    font-size: 15px;
+    padding: 4px; /* Высота строки */
+    border: 2px solid #5092e9; /* Цвет границы шапки отдела #5092e9 */
+    border-radius: 4px;
+    cursor: pointer;
+    user-select: none;
+    transition: color 0.20s ease-in, background-color 0.20s ease-in;
+}    
+.global-department-header:hover {
+    background-color: #458dec; /* Цвет шапки при наведении */
+}    
+.global-department-header:active {
+    background-color: #277dec; /* Цвет шапки при нажатии #033980 */
+    /* color: #d1e4fd; */
+    transform: scale(0.99);
+}
 
-    .department-static-tables {
-        background-color: #e1f0fc;
-    }
-    .global-departments-static-tables {
-        background-color: #e1f0fc;
-    }
-    
-    h1 {
-        margin-bottom: 3px;
-        font-family: "Ubuntu", sans-serif;
-        font-weight: 500;
-        font-style: normal;
-        font-size: 15px;
-        color: #000000cb; /* Цвет заголовка "Внутренние телефоны" */
-    }
-    
-    /* ПОИСК: Стили для шапок отделов */
-    h2 {
-        background-color: #92cbee; /* Цвет шапки отдела #bfdaeb */
-        font-weight: 500; 
-        text-align: left; /* Выравнивание текста */
-        text-indent: 20px; /* Отступ слева */
-        font-size: 14px;
-        padding: 4px; /* Высота строки */
-        border: 1px solid #5092e9; /* Цвет границы шапки отдела #5092e9 */
-        border-radius: 4px;
-        cursor: pointer;
-        width: 1268px; /* 355px 1166px */
-        user-select: none;
-    }
-    
-    /* Поле поиска */
-    input#search {
-        font-size: 14px;
-        font-weight: 500;
-        border: 2px solid #5092e9;
-        border-radius: 5px;
-        box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
-    }
-    input#search:hover {
-        background-color: #bbd1ec; /* Цвет при наведении */
-    }
-    input#search:active {
-        background-color: #bbd1ec; /* Цвет при наведении */
-        transform: scale(0.99);
-    }
-    
-    /* Стили для таблиц */
-    table {
-        margin-bottom: 1px;    
-        /* border-collapse: collapse; /* убрать зазоры между ячейками */
-        border: 1px solid #5092e9;
-        border-radius: 5px;
-        box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
-    }
-    
-    /* Постоянно: Стили для шапки таблицы "ИМЯ" и "НОМЕР" */
-    thead th {
-        background-color: #92cbee; /* Заливка шапки */ 
-        font-weight: normal; 
-        text-align: center; /* Выравнивание текста по центру */
-        font-size: 14px;
-        font-weight: 600;
-        padding: 4px; /* Высота строки */ 
-        color: #0c110d; /* Цвет текста */
-        user-select: none;
-        border: 2px solid #5092e9;
-        border-radius: 5px;
-    }
-    
-    tbody td {
-        border: 1px solid #5092e9;
-        border-radius: 5px;
-    }
-    
-    tbody {
-        background-color: #5092e9;
-    }
-    
-    /* Постоянно: Стили для шапок отделов */
-    .department-header {
-        width: 1266px; /* 355px 1166px */
-        background-color: #92cbee; /* Цвет шапки отдела #bfdaeb */
-        margin-top: 1px;
-        margin-bottom: 1px;
-        font-weight: 600; 
-        text-align: left; /* Выравнивание текста */
-        text-indent: 20px; /* Отступ слева */
-        font-size: 15px;
-        padding: 4px; /* Высота строки */
-        border: 2px solid #5092e9; /* Цвет границы шапки отдела #5092e9 */
-        border-radius: 4px;
-        cursor: pointer;
-        user-select: none;
-        transition: color 0.20s ease-in, background-color 0.20s ease-in;
-    }
-    
-    .department-header:hover {
-        background-color: #458dec; /* Цвет шапки при наведении */
-    }
-    
-    .department-header:active {
-        background-color: #277dec; /* Цвет шапки при нажатии #033980 */
-        /* color: #d1e4fd; */
-        transform: scale(0.99);    
-    }
+/* ---------------------------- div3 ---------------------------- */
+/* Строка поиска */
+.search-field { grid-area: 1 / 2 / 2 / 3;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    margin-left: 480px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Центрирование содержимого по вертикали */
+    padding: 4px 0; /* Отступы сверху и снизу */
+    box-sizing: border-box;    
+    user-select: none;
+    height: 49px; /* Заполнение по высоте */  
+    width: 1278px;
+}
+/* Поле поиска */
+input#search {
+    font-size: 14px;
+    font-weight: 500;
+    padding: 4px;
+    margin: center;
+    width: 300px;
+    border: 2px solid #5092e9;
+    border-radius: 5px;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
+}
+input#search:hover {
+    background-color: #bbd1ec; /* Цвет при наведении */
+}
+input#search:active {
+    background-color: #bbd1ec; /* Цвет при наведении */
+    transform: scale(0.99);
+}
+.not-found {
+    text-align: center;
+    width: 1278px;
+}
 
-    /* Постоянно: Стили для шапок отделов */
-    .global-department-header {
-        /* width: 1266px; /* 355px 1166px */
-        width: auto;
-        background-color: #92cbee; /* Цвет шапки отдела #bfdaeb */
-        margin-top: 1px;
-        margin-bottom: 1px;
-        font-weight: 600; 
-        text-align: left; /* Выравнивание текста */
-        text-indent: 20px; /* Отступ слева */
-        font-size: 15px;
-        padding: 4px; /* Высота строки */
-        border: 2px solid #5092e9; /* Цвет границы шапки отдела #5092e9 */
-        border-radius: 4px;
-        cursor: pointer;
-        user-select: none;
-        transition: color 0.20s ease-in, background-color 0.20s ease-in;
-    }
-    
-    .global-department-header:hover {
-        background-color: #458dec; /* Цвет шапки при наведении */
-    }
-    
-    .global-department-header:active {
-        background-color: #277dec; /* Цвет шапки при нажатии #033980 */
-        /* color: #d1e4fd; */
-        transform: scale(0.99);    
-    }
-    
-    table tbody tr:nth-child(odd) {
-        background-color: #daebf3; /* Цвет заливки для четных строк */
-    }
-    
-    table tbody tr:nth-child(even) {
-        background-color: #bfdaeb; /* Цвет заливки для нечетных строк */
-    }
-    
-    /* Установка ширины столбцов */
-    td:nth-child(1) {
-        width: 100px; /* Столбец IP phone */
-        font-size: 14px;
-        font-weight: 500;
-        border-radius: 8px;
-        color: #000; /* Цвет текста в ячейках */
-        text-align: center;
-        transition: color 0.20s ease-in, background-color 0.20s ease-in;
-    }
-    td:nth-child(1):hover {
-        background-color: #277dec; /* Цвет при наведении */
-    }
-    
-    td:nth-child(2) {
-        width: 250px; /* Столбец name */
-        padding: 4px;
-        font-size: 14px;
-        font-weight: 500;  
-        border-radius: 8px;
-        color: #000; /* Цвет текста в ячейках */
-        text-align: left;
-        transition: color 0.20s ease-in, background-color 0.20s ease-in;
-    }
-    td:nth-child(2):hover {
-        background-color: #277dec; /* Цвет при наведении */
-    }
-    
-    td:nth-child(3) {
-        width: 480px; /* Столбец position */
-        padding: 4px;
-        font-size: 14px;
-        font-weight: 500;   
-        border-radius: 8px;
-        color: #000; /* Цвет текста в ячейках */
-        text-align: left;
-        transition: color 0.20s ease-in, background-color 0.20s ease-in;
-    }
-    td:nth-child(3):hover {
-        background-color: #277dec; /* Цвет при наведении */
-    }
-    
-    td:nth-child(4) {
-        width: 250px; /* Столбец email */
-        padding: 4px;
-        font-size: 14px;
-        font-weight: 500;  
-        border-radius: 8px;
-        color: #000; /* Цвет текста в ячейках */
-        text-align: center;
-        transition: color 0.20s ease-in, background-color 0.20s ease-in;
-    }
-    td:nth-child(4):hover {
-        background-color: #277dec; /* Цвет при наведении */
-    }
-    td:nth-child(4):active {
-        background-color: #277dec; /* Цвет при наведении */
-        transform: scale(0.98);
-    }
-    
-    td:nth-child(5) {
-        width: 140px; /* Столбец mobile phone */
-        padding: 4px;
-        font-size: 14px;
-        font-weight: 500;   
-        border-radius: 8px;
-        color: #000; /* Цвет текста в ячейках */
-        text-align: center;
-        transition: color 0.20s ease-in, background-color 0.20s ease-in;
-    }
-    td:nth-child(5):hover {
-        background-color: #277dec; /* Цвет при наведении */
-    }
-    
-    /* Class - для скрытия при поиске */
-    .hidden {
-        display: none;
-    }
+/* ---------------------------- div4 ---------------------------- */
+/* Общий контейнер */
+.container {
+    grid-area: 2 / 2 / 3 / 3;
+    height: auto; /* Заполнение по высоте */
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    background-color: #e1f0fc;
+}
+/* ПОИСК: Стили для шапок отделов */
+h3 {
+    background-color: #92cbee; /* Цвет шапки отдела #bfdaeb */
+    font-weight: 500;
+    margin: 1px;
+    text-align: left; /* Выравнивание текста */
+    text-indent: 20px; /* Отступ слева */
+    font-size: 14px;
+    padding: 4px; /* Высота строки */
+    border: 1px solid #5092e9; /* Цвет границы шапки отдела #5092e9 */
+    border-radius: 4px;
+    cursor: pointer;
+    width: 1268px; /* 355px 1166px */
+    user-select: none;
+}
+.department-static-tables {
+    background-color: #e1f0fc;
+}
+/* Постоянно: Стили для шапок отделов */
+.department-header {
+    width: 1266px; /* 355px 1166px */
+    background-color: #92cbee; /* Цвет шапки отдела #bfdaeb */
+    margin-top: 1px;
+    margin-bottom: 1px;
+    font-weight: 600; 
+    text-align: left; /* Выравнивание текста */
+    text-indent: 20px; /* Отступ слева */
+    font-size: 15px;
+    padding: 4px; /* Высота строки */
+    border: 2px solid #5092e9; /* Цвет границы шапки отдела #5092e9 */
+    border-radius: 4px;
+    cursor: pointer;
+    user-select: none;
+    transition: color 0.20s ease-in, background-color 0.20s ease-in;
+}
+.department-header:hover {
+    background-color: #458dec; /* Цвет шапки при наведении */
+}
+.department-header:active {
+    background-color: #277dec; /* Цвет шапки при нажатии #033980 */
+    /* color: #d1e4fd; */
+    transform: scale(0.99);    
+}
+/* Стили для таблиц */
+table {
+    margin-bottom: 1px;    
+    /* border-collapse: collapse; /* убрать зазоры между ячейками */
+    border: 1px solid #5092e9;
+    border-radius: 5px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Постоянно: Стили для шапки таблицы "ИМЯ" и "НОМЕР" */
+thead th {
+    background-color: #92cbee; /* Заливка шапки */ 
+    font-weight: normal; 
+    text-align: center; /* Выравнивание текста по центру */
+    font-size: 14px;
+    font-weight: 600;
+    padding: 4px; /* Высота строки */ 
+    color: #0c110d; /* Цвет текста */
+    user-select: none;
+    border: 2px solid #5092e9;
+    border-radius: 5px;
+}
+
+tbody td {
+    border: 1px solid #5092e9;
+    border-radius: 5px;
+}
+
+tbody {
+    background-color: #5092e9;
+}
+table tbody tr:nth-child(odd) {
+    background-color: #daebf3; /* Цвет заливки для четных строк */
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #bfdaeb; /* Цвет заливки для нечетных строк */
+}
+
+/* Установка ширины столбцов */
+td:nth-child(1) {
+    width: 100px; /* Столбец IP phone */
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 8px;
+    color: #000; /* Цвет текста в ячейках */
+    text-align: center;
+    transition: color 0.20s ease-in, background-color 0.20s ease-in;
+}
+td:nth-child(1):hover {
+    background-color: #277dec; /* Цвет при наведении */
+}
+
+td:nth-child(2) {
+    width: 250px; /* Столбец name */
+    padding: 4px;
+    font-size: 14px;
+    font-weight: 500;  
+    border-radius: 8px;
+    color: #000; /* Цвет текста в ячейках */
+    text-align: left;
+    transition: color 0.20s ease-in, background-color 0.20s ease-in;
+}
+td:nth-child(2):hover {
+    background-color: #277dec; /* Цвет при наведении */
+}
+
+td:nth-child(3) {
+    width: 480px; /* Столбец position */
+    padding: 4px;
+    font-size: 14px;
+    font-weight: 500;   
+    border-radius: 8px;
+    color: #000; /* Цвет текста в ячейках */
+    text-align: left;
+    transition: color 0.20s ease-in, background-color 0.20s ease-in;
+}
+td:nth-child(3):hover {
+    background-color: #277dec; /* Цвет при наведении */
+}
+
+td:nth-child(4) {
+    width: 250px; /* Столбец email */
+    padding: 4px;
+    font-size: 14px;
+    font-weight: 500;  
+    border-radius: 8px;
+    color: #000; /* Цвет текста в ячейках */
+    text-align: center;
+    transition: color 0.20s ease-in, background-color 0.20s ease-in;
+}
+td:nth-child(4):hover {
+    background-color: #277dec; /* Цвет при наведении */
+}
+td:nth-child(4):active {
+    background-color: #277dec; /* Цвет при наведении */
+    transform: scale(0.98);
+}
+
+td:nth-child(5) {
+    width: 140px; /* Столбец mobile phone */
+    padding: 4px;
+    font-size: 14px;
+    font-weight: 500;   
+    border-radius: 8px;
+    color: #000; /* Цвет текста в ячейках */
+    text-align: center;
+    transition: color 0.20s ease-in, background-color 0.20s ease-in;
+}
+td:nth-child(5):hover {
+    background-color: #277dec; /* Цвет при наведении */
+}
+
+/* ---------------------------- div5 ---------------------------- */
+.basement-left-short { grid-area: 3 / 1 / 4 / 2; }
+/* ---------------------------- div6 ---------------------------- */
+.basement-right-long { grid-area: 3 / 2 / 4 / 3; }
+
+/* Class - для скрытия при поиске */
+.hidden {
+    display: none;
+}

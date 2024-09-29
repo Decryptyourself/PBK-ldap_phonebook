@@ -4,6 +4,7 @@
 /info/
 src/templates/img
 *.cer
+src/settings.py
 
 # Игнор виртуального окружения
 /ldap-env/
